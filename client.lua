@@ -19,13 +19,14 @@ local function onPersist(key)
   end
 end
 
-local function showPersist(message, key, cb)
+local function showPersist(message, key, position, cb)
   local findKey = KEYS[key:upper()]
   SendNUIMessage({
     type = "SHOW",
     body = {
       message = message,
-      key = findKey
+      key = findKey,
+      position = position
     }
   })
   callback = cb
@@ -45,6 +46,10 @@ end
 exports('showPersist', showPersist)
 exports('hidePersist', hidePersist)
 
--- exports['cld_textui']:showPersist("Open Door", "A", function(result, message)
+-- exports['cld_textui']:showPersist("Open Door", "A", {
+--  x = 'center',
+--  y = 'bottom'
+-- }
+--function(result, message)
 --   print(result, message)
 -- end)

@@ -10,3 +10,26 @@ window.addEventListener('load', () => {
     }
   });
 });
+
+class PersistentNotification {
+  constructor() {
+    this.key = null;
+  }
+
+  show(message, key) {
+    this.key = key;
+    window.postMessage({
+      type: 'SHOW',
+      body: {
+        message,
+        key,
+      },
+    }, '*');
+  }
+
+  hide() {
+    window.postMessage({
+      type: 'HIDE',
+    }, '*');
+  }
+}
