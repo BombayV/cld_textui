@@ -77,11 +77,34 @@ exports('hidePersist', hidePersist)
   end)
 
   -- Custom use
-  CreateThread(function()
-    local ped = PlayerPedId()
-    while true do
-      if
-      Wait(0)
+CreateThread(function()
+  local ped = PlayerPedId()
+  local activeNotification = false
+  local timeout = 1000
+  while true do
+    local coords = GetEntityCoords(ped)
+    local dist = #(coords - vector3(-232.114, -966.42, 29.27))
+    if dist < 4.0 then
+      if timeout ~= 0 then
+        timeout = 0
+      end
+      if not activeNotification then
+        activeNotification = true
+        exports['cld_textui']:showPersist("Open door", "E")
+      end
+      if IsControlJustReleased(0, 38) then
+        exports['cld_textui']:hidePersist()
+      end
+    else
+      if activeNotification then
+        exports['cld_textui']:hidePersist()
+        activeNotification = false
+      end
+      if timeout ~= 1000 then
+        timeout = 1000
+      end
     end
-  end)
+    Wait(TIMEOUT)
+  end
+end)
 ]]--
