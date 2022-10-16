@@ -9,6 +9,9 @@ local function onPersist(key)
     CreateThread(function()
       while true do
         if IsControlJustReleased(0, key) then
+          SendNUIMessage({
+            type = "HIDE"
+          })
           callback(key, ("Key %s was pressed"):format(key))
           callback = nil
           break
@@ -19,18 +22,19 @@ local function onPersist(key)
   end
 end
 
-local function showPersist(message, key, position, cb)
-  local findKey = KEYS[key:upper()]
+local function showPersist(message, key, cb)
+  local findKey = key:upper()
   SendNUIMessage({
     type = "SHOW",
     body = {
       message = message,
-      key = findKey,
-      position = position
+      key = findKey
     }
   })
-  callback = cb
-  onPersist(findKey)
+  if cb then
+    callback = cb
+    onPersist(KEYS[findKey])
+  end
 end
 
 local function hidePersist()
@@ -46,10 +50,6 @@ end
 exports('showPersist', showPersist)
 exports('hidePersist', hidePersist)
 
--- exports['cld_textui']:showPersist("Open Door", "A", {
---  x = 'center',
---  y = 'bottom'
--- }
---function(result, message)
+-- exports['cld_textui']:showPersist("Open Door", "A", function(result, message)
 --   print(result, message)
 -- end)
