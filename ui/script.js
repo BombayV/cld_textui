@@ -26,6 +26,8 @@ class Notification {
   main = null
   key = null;
   text = null;
+  duration = 1.5;
+  easing = 'power4.inOut';
 
   constructor(config) {
     this.container = document.querySelector('.container');
@@ -45,6 +47,8 @@ class Notification {
     this.key.style.backgroundColor = config.KEY_BG_COLOR;
     this.key.style.color = config.KEY_COLOR;
     this.key.style.borderColor = config.KEY_BORDER_COLOR;
+    this.duration = config.DURATION;
+    this.easing = config.EASING;
   }
 
   show(message, key) {
@@ -61,8 +65,8 @@ class Notification {
           opacity: 1,
         }, {
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
           onComplete: () => {
             this.setKey('');
             this.setText('');
@@ -76,8 +80,8 @@ class Notification {
         }, {
           x: -300,
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
           onComplete: () => {
             this.setKey('');
             this.setText('');
@@ -91,8 +95,8 @@ class Notification {
         }, {
           x: 300,
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
           onComplete: () => {
             this.setKey('');
             this.setText('');
@@ -106,8 +110,8 @@ class Notification {
         }, {
           y: 300,
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
           onComplete: () => {
             this.setKey('');
             this.setText('');
@@ -121,8 +125,8 @@ class Notification {
         }, {
           y: -300,
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
           onComplete: () => {
             this.setKey('');
             this.setText('');
@@ -172,8 +176,8 @@ class Notification {
         }, {
           x: 0,
           opacity: 1,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
         });
         break;
       case 'slideInRight':
@@ -182,8 +186,8 @@ class Notification {
         }, {
           x: 0,
           opacity: 1,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
         });
         break;
       case 'slideInDown':
@@ -192,8 +196,8 @@ class Notification {
         }, {
           y: 0,
           opacity: 1,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
         });
         break;
       case 'slideInUp':
@@ -202,8 +206,8 @@ class Notification {
         }, {
           y: 0,
           opacity: 1,
-          ease: 'power4.inOut',
-          duration: 1.5,
+          ease: this.easing,
+          duration: this.duration,
         });
         break;
     }
