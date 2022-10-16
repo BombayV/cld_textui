@@ -1,7 +1,6 @@
 local callback
 local KEYS = {
-  ["A"] = 37,
-  ["B"] = 38
+  ["E"] = 38
 }
 
 local function onPersist(key)

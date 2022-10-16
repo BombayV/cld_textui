@@ -202,9 +202,6 @@ class Notification {
         });
         break;
     }
-    setTimeout(() => {
-      this.hide();
-    }, 3000);
   }
 
   debug(data) {
