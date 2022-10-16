@@ -1,4 +1,5 @@
 local callback
+local activeNotification = false
 local KEYS = {
   ["E"] = 38
 }
@@ -23,6 +24,19 @@ end
 
 local function showPersist(message, key, cb)
   local findKey = key:upper()
+  if activeNotification then
+    SendNUIMessage({
+      type = "UPDATE_TEXT",
+      body = {
+        message = message,
+        key = findKey
+      }
+    })
+    print(("Updated text to %s"):format(message))
+    return
+  end
+
+  activeNotification = true
   SendNUIMessage({
     type = "SHOW",
     body = {
@@ -30,6 +44,7 @@ local function showPersist(message, key, cb)
       key = findKey
     }
   })
+
   if cb then
     callback = cb
     onPersist(KEYS[findKey])
@@ -37,9 +52,13 @@ local function showPersist(message, key, cb)
 end
 
 local function hidePersist()
+  if not activeNotification then
+    return
+  end
   SendNUIMessage({
     type = "HIDE"
   })
+  activeNotification = false
   if callback then
     callback(nil, "HIDDEN")
     callback = nil
@@ -49,6 +68,20 @@ end
 exports('showPersist', showPersist)
 exports('hidePersist', hidePersist)
 
--- exports['cld_textui']:showPersist("Open Door", "A", function(result, message)
---   print(result, message)
--- end)
+
+--[[
+ -- Uses keys from the KEYS table
+  exports['cld_textui']:showPersist("Open door", "E", function(result, msg)
+    print(result)
+    print(msg)
+  end)
+
+  -- Custom use
+  CreateThread(function()
+    local ped = PlayerPedId()
+    while true do
+      if
+      Wait(0)
+    end
+  end)
+]]--

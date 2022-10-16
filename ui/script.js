@@ -4,13 +4,19 @@ window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
-      case 'SHOW':
+      case 'SHOW': {
         const { message, key } = event.data.body;
         notification.show(message, key);
+      }
         break;
       case 'HIDE':
         notification.hide();
         break;
+      case 'UPDATE_TEXT': {
+        const { message, key } = event.data.body;
+        notification.setKey(key);
+        notification.setText(message);
+      }
     }
   });
 });
@@ -152,7 +158,6 @@ class Notification {
 
   startAnimation() {
     const position = this.getPosition();
-    console.log(position);
     switch (position) {
       case 'fadeIn':
         gsap.fromTo(this.main, {
