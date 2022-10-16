@@ -12,10 +12,10 @@ body {
   -webkit-text-size-adjust: 100%;
   width: 100vw;
   height: 100vh;
-  background: darkgray;
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .container {
@@ -27,6 +27,7 @@ body {
 }
 
 .ui-container {
+  opacity: 0;
   display: flex;
   justify-content: start;
   align-items: center;

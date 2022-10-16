@@ -5,6 +5,7 @@ use_fxv2_oal 'yes'
 
 ui_page 'ui/index.html'
 files {
+  'config.js',
   'ui/**/*'
 }
 

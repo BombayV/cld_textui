@@ -6,8 +6,8 @@ const CONFIG = {
   KEY_COLOR: '#000000', // Key color
   KEY_BORDER_COLOR: '#ababab', // Key border color
   KEY_BG_COLOR: '#ffffff', // Key background color
-  X: 'right', // X position (left, center, right)
-  Y: 'center', // Y position (start, center, end)
+  X: 'center', // X position (left, center, right)
+  Y: 'end', // Y position (start, center, end)
 
 }
 
