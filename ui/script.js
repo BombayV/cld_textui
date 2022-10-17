@@ -3,7 +3,7 @@ import CONFIG from '../config.js';
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
   notification.debug({
-    message: 'Hello, world!',
+    message: 'PARA ACCEDER AL GARAJE',
     key: 'E'
   });
   window.addEventListener('message', (event) => {

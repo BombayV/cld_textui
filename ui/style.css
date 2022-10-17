@@ -15,7 +15,7 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
-  background: #000;
+  /* background: #000; */
 }
 
 .container {
@@ -37,10 +37,11 @@ body {
 
 .ui-logo {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 6px;
+  left: 8px;
   transform: translate(-60%, -60%);
   transform-origin: center;
+  font-size: 19px;
   color: white;
 }
 
@@ -52,7 +53,7 @@ body {
   justify-content: start;
   align-items: center;
   border-radius: 3px;
-  padding: 1px 0.6rem;
+  padding: 1px 1.2rem;
   height: 2rem;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
 }
@@ -65,8 +66,8 @@ body {
   background: #e3e2e2;
   border-radius: 2px;
   font-size: 17px;
-  border-right: 2px solid #c4c4c4;
-  border-bottom: 1px solid #c4c4c4;
+  /* border-right: 2px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4; */
 }
 
 .ui-text {
