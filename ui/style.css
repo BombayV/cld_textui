@@ -43,7 +43,14 @@ body {
   border-radius: 3px;
 }
 
+.ui-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .data-flex {
+  position: relative;
   background: black;
   display: flex;
   flex-direction: row;
