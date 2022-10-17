@@ -39,7 +39,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%) scale(-1, 1);
+  transform: translate(-60%, -60%);
   transform-origin: center;
   color: white;
 }
