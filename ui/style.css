@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+  font-family: bankgothic;
+  src: url('./bankgothic.ttf');
+}
+
+
 body {
-  font-family: 'Bebas Neue', sans-serif;
+  /* font-family: 'Bebas Neue', sans-serif; */
   margin: 0;
   padding: 0;
 
@@ -76,4 +83,5 @@ body {
   margin-left: 0.5rem;
   font-size: 16px;
   font-weight: 400;
+  font-family: bankgothic;
 }
