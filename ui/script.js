@@ -31,6 +31,17 @@ class Notification {
   text = null;
   duration = 1.5;
   easing = 'power4.inOut';
+  colors ={
+    r: '#ff0000',
+    g: '#00ff00',
+    b: '#0000ff',
+    y: '#ffff00',
+    p: '#ff00ff',
+    c: '#00ffff',
+    w: '#ffffff',
+    o: '#ff7f00',
+    s: '#ffffffcc'
+  }
 
   constructor(config) {
     this.sound = document.getElementById('sound');
@@ -55,6 +66,7 @@ class Notification {
     this.duration = config.DURATION;
     this.easing = config.EASING;
     this.sound.volume = config.VOLUME;
+    this.colors.w = config.TEXT_COLOR;
   }
 
   show(message, key) {
@@ -158,7 +170,23 @@ class Notification {
   }
 
   setText(newText) {
-    this.text.textContent = newText;
+    let text = newText;
+    // Check if text contains a span tag
+    if (text.includes('<span')) {
+      text = text.replace(/~r~/g, `<span style="color: ${this.colors.r}">`);
+      text = text.replace(/~g~/g, `<span style="color: ${this.colors.g}">`);
+      text = text.replace(/~b~/g, `<span style="color: ${this.colors.b}">`);
+      text = text.replace(/~y~/g, `<span style="color: ${this.colors.y}">`);
+      text = text.replace(/~p~/g, `<span style="color: ${this.colors.p}">`);
+      text = text.replace(/~c~/g, `<span style="color: ${this.colors.c}">`);
+      text = text.replace(/~w~/g, `<span style="color: ${this.colors.w}">`);
+      text = text.replace(/~o~/g, `<span style="color: ${this.colors.o}">`);
+      text = text.replace(/~s~/g, `<span style="color: ${this.colors.s}">`);
+      text = text.replace(/~\/~/g, '</span>');
+      this.text.innerHTML = text;
+    } else {
+      this.text.textContent = text;
+    }
   }
 
   getPosition() {
