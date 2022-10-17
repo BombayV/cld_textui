@@ -15,6 +15,7 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
+  background: #000;
 }
 
 .container {
@@ -31,22 +32,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  margin: 0.5rem;
-}
-
-.ui-title {
-  font-size: 1.2rem;
-  color: white;
-  background: #000000;
-  padding: 0.2rem 1rem;
-  text-align: center;
-  border-radius: 3px;
+  margin: 1rem;
 }
 
 .ui-logo {
   position: absolute;
   top: 0;
   left: 0;
+  transform: translate(-50%, -50%) scale(-1, 1);
+  transform-origin: center;
+  color: white;
 }
 
 .data-flex {
