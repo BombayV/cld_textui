@@ -2,10 +2,6 @@ import CONFIG from '../config.js';
 
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
-  notification.debug({
-    message: 'Debug message',
-    key: 'E'
-  })
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
       case 'SHOW': {
@@ -26,6 +22,7 @@ window.addEventListener('load', () => {
 });
 
 class Notification {
+  sound = null;
   container = null;
   main = null
   flexCont = null;
@@ -35,6 +32,7 @@ class Notification {
   easing = 'power4.inOut';
 
   constructor(config) {
+    this.sound = document.getElementById('sound');
     this.container = document.querySelector('.container');
     this.main = document.querySelector('.ui-container');
     this.flexCont = document.querySelector('.data-flex');
@@ -55,6 +53,7 @@ class Notification {
     this.key.style.borderColor = config.KEY_BORDER_COLOR;
     this.duration = config.DURATION;
     this.easing = config.EASING;
+    this.sound.volume = config.VOLUME;
   }
 
   show(message, key) {
@@ -217,6 +216,7 @@ class Notification {
         });
         break;
     }
+    this.sound.play();
   }
 
   debug(data) {

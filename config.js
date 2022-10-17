@@ -10,6 +10,7 @@ const CONFIG = {
   Y: 'start', // Y position (start, center, end)
   DURATION: 1.5, // Duration (seconds)
   EASING: 'power4.inOut', // Easing
+  VOLUME: 0.3, // Volume (0-1)
 
 }
 
