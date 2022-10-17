@@ -7,7 +7,7 @@ const CONFIG = {
   KEY_BORDER_COLOR: '#ababab', // Key border color
   KEY_BG_COLOR: '#ffffff', // Key background color
   X: 'right', // X position (left, center, right)
-  Y: 'start', // Y position (start, center, end)
+  // Y: '3px', // Y position (start, center, end)
   DURATION: 1, // Duration (seconds)
   EASING: 'power4.inOut', // Easing
   VOLUME: 0.3, // Volume (0-1)
