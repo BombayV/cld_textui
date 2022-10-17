@@ -2,6 +2,12 @@ import CONFIG from '../config.js';
 
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
+  setTimeout(() => {
+    notification.debug({
+      message: 'Debug message',
+      key: 'E',
+    });
+  }, 2000);
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
       case 'SHOW': {
