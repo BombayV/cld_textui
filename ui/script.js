@@ -2,6 +2,10 @@ import CONFIG from '../config.js';
 
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
+  notification.debug({
+    message: 'Debug message',
+    key: 'E'
+  })
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
       case 'SHOW': {
@@ -24,6 +28,7 @@ window.addEventListener('load', () => {
 class Notification {
   container = null;
   main = null
+  flexCont = null;
   key = null;
   text = null;
   duration = 1.5;
@@ -32,6 +37,7 @@ class Notification {
   constructor(config) {
     this.container = document.querySelector('.container');
     this.main = document.querySelector('.ui-container');
+    this.flexCont = document.querySelector('.data-flex');
     this.text = document.querySelector('.ui-text');
     this.key = document.querySelector('.ui-key');
     this.setup(config);
@@ -40,9 +46,9 @@ class Notification {
   setup(config) {
     this.container.style.justifyContent = config.X;
     this.container.style.alignItems = config.Y;
-    this.main.style.backgroundColor = config.BG_COLOR;
-    this.main.style.borderRadius = `${config.BORDER_RADIUS}px`;
-    this.main.style.boxShadow = `0 0 5px 1px ${config.BOX_SHADOW}`;
+    this.flexCont.style.backgroundColor = config.BG_COLOR;
+    this.flexCont.style.borderRadius = `${config.BORDER_RADIUS}px`;
+    this.flexCont.style.boxShadow = `0 0 12px 4px ${config.BOX_SHADOW}`;
     this.text.style.color = config.TEXT_COLOR;
     this.key.style.backgroundColor = config.KEY_BG_COLOR;
     this.key.style.color = config.KEY_COLOR;

@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 body {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   margin: 0;
   padding: 0;
 
@@ -29,13 +28,30 @@ body {
 .ui-container {
   opacity: 0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  margin: 0.5rem;
+}
+
+.ui-title {
+  font-size: 1.2rem;
+  color: white;
+  background: #000000;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.data-flex {
+  background: black;
+  display: flex;
+  flex-direction: row;
   justify-content: start;
   align-items: center;
-  height: 2rem;
-  background: black;
   border-radius: 3px;
   padding: 1px 0.6rem;
-  margin: 0.5rem;
+  height: 2rem;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -46,14 +62,15 @@ body {
   height: 1.4rem;
   background: #e3e2e2;
   border-radius: 2px;
-  font-weight: 600;
-  font-size: 14px;
+  font-size: 17px;
   border-right: 2px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4;
 }
 
 .ui-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-left: 0.5rem;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 }
