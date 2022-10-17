@@ -60,6 +60,7 @@ class Notification {
     this.flexCont.style.backgroundColor = config.BG_COLOR;
     this.flexCont.style.borderRadius = `${config.BORDER_RADIUS}px`;
     this.flexCont.style.boxShadow = `0 0 12px 4px ${config.BOX_SHADOW}`;
+    this.flexCont.style.margin = `${config.MARGIN}`;
     this.text.style.color = config.TEXT_COLOR;
     this.key.style.backgroundColor = config.KEY_BG_COLOR;
     this.key.style.color = config.KEY_COLOR;
