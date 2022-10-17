@@ -2,12 +2,10 @@ import CONFIG from '../config.js';
 
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
-  setTimeout(() => {
-    notification.debug({
-      message: 'Debug message',
-      key: 'E',
-    });
-  }, 2000);
+  notification.debug({
+    message: 'Hello, world!',
+    key: 'E'
+  });
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
       case 'SHOW': {
@@ -28,6 +26,7 @@ window.addEventListener('load', () => {
 });
 
 class Notification {
+  active = false;
   sound = null;
   container = null;
   main = null
@@ -63,12 +62,18 @@ class Notification {
   }
 
   show(message, key) {
+    if (this.active) {
+      return;
+    }
     this.setText(message);
     this.setKey(key)
     this.startAnimation();
   }
 
   hide() {
+    if (!this.active) {
+      return;
+    }
     const position = this.getPosition();
     switch (position) {
       case 'fadeIn':
@@ -81,6 +86,7 @@ class Notification {
           onComplete: () => {
             this.setKey('');
             this.setText('');
+            this.active = false;
           }
         });
         break;
@@ -96,6 +102,7 @@ class Notification {
           onComplete: () => {
             this.setKey('');
             this.setText('');
+            this.active = false;
           }
         });
         break;
@@ -111,6 +118,7 @@ class Notification {
           onComplete: () => {
             this.setKey('');
             this.setText('');
+            this.active = false;
           }
         });
         break;
@@ -126,6 +134,7 @@ class Notification {
           onComplete: () => {
             this.setKey('');
             this.setText('');
+            this.active = false;
           }
         });
         break;
@@ -141,6 +150,7 @@ class Notification {
           onComplete: () => {
             this.setKey('');
             this.setText('');
+            this.active = false;
           }
         });
         break;
@@ -179,6 +189,9 @@ class Notification {
           opacity: 0,
         }, {
           opacity: 1,
+          onComplete: () => {
+            this.active = true;
+          }
         });
         break;
       case 'slideInLeft':
@@ -189,6 +202,9 @@ class Notification {
           opacity: 1,
           ease: this.easing,
           duration: this.duration,
+          onComplete: () => {
+            this.active = true;
+          }
         });
         break;
       case 'slideInRight':
@@ -199,6 +215,9 @@ class Notification {
           opacity: 1,
           ease: this.easing,
           duration: this.duration,
+          onComplete: () => {
+            this.active = true;
+          }
         });
         break;
       case 'slideInDown':
@@ -209,6 +228,9 @@ class Notification {
           opacity: 1,
           ease: this.easing,
           duration: this.duration,
+          onComplete: () => {
+            this.active = true;
+          }
         });
         break;
       case 'slideInUp':
@@ -219,6 +241,9 @@ class Notification {
           opacity: 1,
           ease: this.easing,
           duration: this.duration,
+          onComplete: () => {
+            this.active = true;
+          }
         });
         break;
     }
