@@ -22,6 +22,16 @@ local function onPersist(key)
   end
 end
 
+local function updateText(text, key)
+  SendNUIMessage({
+    type = "UPDATE_TEXT",
+    body = {
+      message = text,
+      key = key:upper()
+    }
+  })
+end
+
 local function showPersist(message, key, cb)
   local findKey = key:upper()
   if activeNotification then
@@ -65,6 +75,7 @@ local function hidePersist()
   end
 end
 
+exports('updateText', updateText)
 exports('showPersist', showPersist)
 exports('hidePersist', hidePersist)
 
