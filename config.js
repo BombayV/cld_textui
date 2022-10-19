@@ -1,7 +1,7 @@
 const CONFIG = {
   MARGIN: '6vh 0 0 0', // (top, right, bottom, left) - use vh or vw units for responsive design
-  BG_COLOR: '#5e0800', // Background color
-  BOX_SHADOW: 'rgba(255,22,0,0.5)', // Box shadow
+  BG_COLOR: '#000000', // Background color
+  BOX_SHADOW: 'rgba(0,0,0,0.5)', // Box shadow
   BORDER_RADIUS: 7, // Border radius
   TEXT_COLOR: '#ffffff', // Text color
   KEY_COLOR: '#000000', // Key color
