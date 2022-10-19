@@ -2,7 +2,6 @@ import CONFIG from '../config.js';
 
 window.addEventListener('load', () => {
   const notification = new Notification(CONFIG);
-  notification.debug({ message: 'PARA ACCEDER AL GARAJE', key: 'E' })
   window.addEventListener('message', (event) => {
     switch (event.data.type) {
       case 'SHOW': {
@@ -67,7 +66,6 @@ class Notification {
     this.key.style.borderColor = config.KEY_BORDER_COLOR;
     this.duration = config.DURATION;
     this.easing = config.EASING;
-    this.sound.volume = config.VOLUME;
     this.colors.w = config.TEXT_COLOR;
   }
 
@@ -273,7 +271,6 @@ class Notification {
         });
         break;
     }
-    this.sound.play();
   }
 
   debug(data) {
