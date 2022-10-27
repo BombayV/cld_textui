@@ -1,5 +1,6 @@
 local callback
 local activeNotification = false
+-- Add more letters here or whatever you want.
 local KEYS = {
   ["E"] = 38
 }
